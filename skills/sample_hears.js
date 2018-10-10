@@ -27,6 +27,16 @@ module.exports = function(controller) {
         stats.convos++;
     });
 
+    controller.hears(['/wfh/i'], 'direct_message,direct_mention', function(bot, message) {
+
+        bot.createConversation(message, function(err, convo) {
+            if (!err) {
+                convo.say('Hope to see you back in the office soon');
+                convo.activate();
+            }
+        });
+
+    });
 
     controller.hears(['^uptime','^debug'], 'direct_message,direct_mention', function(bot, message) {
 
