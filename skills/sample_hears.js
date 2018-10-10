@@ -42,7 +42,7 @@ module.exports = function(controller) {
 
         bot.createConversation(message, function(err, convo) {
             if (!err) {
-                convo.setVar('uptime', formatUptime(process.uptime()));
+                convo.setVar('uptime ->', formatUptime(process.uptime()));
                 convo.setVar('convos', stats.convos);
                 convo.setVar('triggers', stats.triggers);
 
